@@ -2,27 +2,19 @@ package fieldPractice;
 
 import java.util.Iterator;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class WindowHandles {
-
-	String baseurl = "http://www.seleniumframework.com/Practiceform/";
-	WebDriver driver;
+public class WindowHandles extends Basepage {
 
 	@BeforeTest
 	public void Url() {
-		driver = new FirefoxDriver();
-		driver.get(baseurl);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+		Browser("chrome", "http://www.seleniumframework.com/Practiceform/");
+		MaximizeBrowser();
+		Implicitwait(20);
 	}
 
 	@Test(priority = 1)
