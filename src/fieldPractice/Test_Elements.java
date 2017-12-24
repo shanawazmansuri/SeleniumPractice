@@ -6,9 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Test_Elements {
-
-	WebDriver driver;
+public class Test_Elements extends Basepage {
 
 	public Test_Elements(WebDriver driver) {
 		this.driver = driver;
@@ -16,6 +14,7 @@ public class Test_Elements {
 	}
 
 	public void Elements() {
+
 		WebElement mousehover = driver.findElement(By.tagName("strong"));
 		WebElement Lastname = driver.findElement(By.name("lastname"));
 		WebElement Firstname = driver.findElement(By.name("firstname"));
@@ -27,15 +26,14 @@ public class Test_Elements {
 		WebElement Heading = driver.findElement(By.tagName("h1"));
 	}
 
-	public WebElement firstName() {
-		WebElement firstName = driver.findElement(By.name("firstname"));
-		return firstName;
+	public void firstName() {
+		WebElement text1 = driver.findElement(By.id("tags"));
 
 	}
 
 	public WebElement lastName() {
-		WebElement Lastname = driver.findElement(By.name("lastname"));
-		return Lastname;
+		WebElement text = id("tags");
+		return text;
 
 	}
 

@@ -1,7 +1,10 @@
 package fieldPractice;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -13,8 +16,7 @@ public class Tests extends Basepage {
 	@BeforeMethod
 	public void start() {
 
-		Browser("chrome",
-				"http://seleniumpractise.blogspot.in/search?updated-max=2016-12-16T21:13:00-08:00&max-results=7");
+		Browser("chrome", "http://toolsqa.com/automation-practice-form/");
 		MaximizeBrowser();
 		Implicitwait(5);
 
@@ -23,16 +25,29 @@ public class Tests extends Basepage {
 	@Test(priority = 1)
 	public void testing() {
 
-		By Alt = By.xpath("id(\"datepicker\")");
-		WebElement ale = driver.findElement(Alt);
+		// Test_Elements elem = new Test_Elements(driver);
+		WebElement slct = driver.findElement(By.cssSelector("#selenium_commands"));
+		Select sel = new Select(slct);
+		List<WebElement> allopt = sel.getOptions();
 
-		WebElement nawazh = WebElementLocator("Id", "ss");
-		ExtraCodes_Framework elem = new ExtraCodes_Framework();
-		WebElement shanawaz = elem.id("aaasdsdsds");
+		for (WebElement ele : allopt) {
+			ele.click();
+			IsSelected(ele);
+		}
 
-		Wait(9000);
-		DateEnter(ale, "12/21/2017");
-		Wait(9000);
+		// WebElement text = Locator("id", "tags");
+		// driver.findElement(By.id("tags")).sendKeys("A");
+		// List<WebElement> listele =
+		// driver.findElements(By.xpath("//ul[@id='ui-id-1']/li/div"));
+		// for (WebElement ele : listele) {
+		// String perelement = ele.getAttribute("innerHTML");
+		// if (perelement.equalsIgnoreCase("Asp")) {
+
+		// ele.click();
+		// Wait(2000);
+		// }
+
+		// }
 
 	}
 

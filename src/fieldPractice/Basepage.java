@@ -123,9 +123,9 @@ public class Basepage {
 	}
 
 	// Alert getText//
-	public void AlertGetText() {
+	public String AlertGetText() {
 		String Alerttext = driver.switchTo().alert().getText();
-		System.out.println("Alert Text is " + Alerttext);
+		return Alerttext;
 
 	}
 
@@ -159,7 +159,7 @@ public class Basepage {
 	}
 
 	// Element Displayed//
-	public void ElementDisplayed(WebElement Element) {
+	public void IsDisplayed(WebElement Element) {
 		if (Element.isDisplayed()) {
 			System.out.println("Element is Displayed");
 		} else {
@@ -169,7 +169,7 @@ public class Basepage {
 	}
 
 	// Element Enabled//
-	public void ElementEnabled(WebElement Element) {
+	public void IsEnabled(WebElement Element) {
 		if (Element.isEnabled()) {
 			System.out.println("Element is enabled");
 		} else {
@@ -178,7 +178,7 @@ public class Basepage {
 	}
 
 	// Element Selected//
-	public void ElemenSelected(WebElement Element) {
+	public void IsSelected(WebElement Element) {
 		if (Element.isSelected()) {
 			System.out.println("Element is selected");
 		} else {
@@ -186,8 +186,50 @@ public class Basepage {
 		}
 	}
 
-	// Locator///
-	public WebElement WebElementLocator(String locatorTpye, String value) {
+	// Locators 1 //
+	public WebElement id(String Locator) {
+		WebElement element = driver.findElement(By.id(Locator));
+		return element;
+	}
+
+	public WebElement CssSelector(String Locator) {
+		WebElement element = driver.findElement(By.cssSelector(Locator));
+		return element;
+	}
+
+	public WebElement TagName(String Locator) {
+		WebElement element = driver.findElement(By.tagName(Locator));
+		return element;
+	}
+
+	public WebElement Name(String Locator) {
+		WebElement element = driver.findElement(By.name(Locator));
+		return element;
+	}
+
+	public WebElement Partialtext(String Locator) {
+		WebElement element = driver.findElement(By.partialLinkText(Locator));
+		return element;
+	}
+
+	public WebElement Xpath(String Locator) {
+		WebElement element = driver.findElement(By.xpath(Locator));
+		return element;
+	}
+
+	public WebElement className(String Locator) {
+		WebElement element = driver.findElement(By.className(Locator));
+		return element;
+	}
+
+	public List<WebElement> Elements(String Locator) {
+
+		List<WebElement> elements = driver.findElements(By.xpath(Locator));
+		return elements;
+	}
+
+	// Locator 2 ///
+	public WebElement Locator(String locatorTpye, String value) {
 		By by;
 		WebElement element;
 		switch (locatorTpye) {
@@ -231,25 +273,26 @@ public class Basepage {
 	}
 
 	// GetTitle///
-	public void GetTitle() {
+	public String GetTitle() {
 
-		String Title = driver.getTitle();
-		System.out.println("Title is " + Title);
+		String title = driver.getTitle();
+		return title;
 
 	}
 
 	// Get Current URL///
-	public void GetCurrentURL() {
+	public String GetCurrentURL() {
 
 		String CurrentUrl = driver.getCurrentUrl();
-		System.out.println("Window URL is " + CurrentUrl);
+		return CurrentUrl;
 
 	}
 
 	// Gettext//
 
-	public void Gettext(String Stringtext, WebElement ele) {
-		Stringtext = ele.getText();
+	public String Gettext(WebElement ele) {
+		String text = ele.getText();
+		return text;
 	}
 
 	// Implicit Wait///

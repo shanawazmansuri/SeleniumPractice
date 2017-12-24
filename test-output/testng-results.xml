@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="70851" started-at="2017-12-23T15:02:15Z" finished-at="2017-12-23T15:03:26Z">
+  <suite name="Default suite" duration-ms="26139" started-at="2017-12-24T07:47:47Z" finished-at="2017-12-24T07:48:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="70851" started-at="2017-12-23T15:02:15Z" finished-at="2017-12-23T15:03:26Z">
-      <class name="fieldPractice.WindowHandles">
-        <test-method status="PASS" signature="Url()[pri:0, instance:fieldPractice.WindowHandles@13c27452]" name="Url" is-config="true" duration-ms="49372" started-at="2017-12-23T20:32:15Z" finished-at="2017-12-23T20:33:05Z">
+    <test name="Default test" duration-ms="26139" started-at="2017-12-24T07:47:47Z" finished-at="2017-12-24T07:48:13Z">
+      <class name="fieldPractice.Tests">
+        <test-method status="PASS" signature="start()[pri:0, instance:fieldPractice.Tests@50d0686]" name="start" is-config="true" duration-ms="21332" started-at="2017-12-24T13:17:47Z" finished-at="2017-12-24T13:18:08Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Url -->
-        <test-method status="PASS" signature="Alert()[pri:1, instance:fieldPractice.WindowHandles@13c27452]" name="Alert" duration-ms="4463" started-at="2017-12-23T20:33:05Z" finished-at="2017-12-23T20:33:09Z">
+        </test-method> <!-- start -->
+        <test-method status="PASS" signature="testing()[pri:1, instance:fieldPractice.Tests@50d0686]" name="testing" duration-ms="2339" started-at="2017-12-24T13:18:08Z" finished-at="2017-12-24T13:18:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Alert -->
-        <test-method status="PASS" signature="SwitchTab()[pri:2, instance:fieldPractice.WindowHandles@13c27452]" name="SwitchTab" duration-ms="16858" started-at="2017-12-23T20:33:09Z" finished-at="2017-12-23T20:33:26Z">
+        </test-method> <!-- testing -->
+        <test-method status="PASS" signature="Close()[pri:0, instance:fieldPractice.Tests@50d0686]" name="Close" is-config="true" duration-ms="2393" started-at="2017-12-24T13:18:11Z" finished-at="2017-12-24T13:18:13Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SwitchTab -->
-      </class> <!-- fieldPractice.WindowHandles -->
+        </test-method> <!-- Close -->
+      </class> <!-- fieldPractice.Tests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
