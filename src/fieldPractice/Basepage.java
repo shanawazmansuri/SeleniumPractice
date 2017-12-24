@@ -82,6 +82,11 @@ public class Basepage {
 		driver.manage().window().fullscreen();
 	}
 
+	// Delete Cookies//
+	public void DeleteCookies() {
+		driver.manage().deleteAllCookies();
+	}
+
 	// Back//
 	public void Back() {
 		driver.navigate().back();
@@ -297,40 +302,38 @@ public class Basepage {
 
 	// Implicit Wait///
 	public void Implicitwait(int time) {
-
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
-
 	}
 
 	// Explicit Wait//
-	public void explicitlyWaitToClick(WebElement ele, int time) {
+	public void WaitToClick(WebElement ele, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));
 	}
 
-	public void explicitlyWaitTovisibleElement(WebElement ele, int time) {
+	public void WaitTovisibleElement(WebElement ele, int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 
-	public void explicitlyWaitAlertPresent(int time) {
+	public void WaitAlertPresent(int time) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
 
-	public void explicitlyWaitcontainTitle(int time, String title) {
+	public void WaitcontainTitle(int time, String title) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.titleContains(title));
 
 	}
 
-	public void explicitlyWaitcontaTitleIs(int time, String title) {
+	public void WaitcontaTitleIs(int time, String title) {
 		WebDriverWait wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.titleIs(title));
 
 	}
 
-	public void explicitlyWaitPageLoadTimeout(int time) {
+	public void WaitPageLoadTimeout(int time) {
 		driver.manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
 
 	}
@@ -423,6 +426,17 @@ public class Basepage {
 
 	}
 
+	// DropDown values
+	public void DropDownValues(WebElement element) {
+		Select selObj = new Select(element);
+		List<WebElement> AllValues = selObj.getOptions();
+		for (WebElement ele : AllValues) {
+			String AllDropValues = ele.getText();
+			System.out.println("Drop Down values are " + AllDropValues);
+		}
+
+	}
+
 	// Enter Date
 	public void DateEnter(WebElement ele, String value) {
 		ele.sendKeys(value);
@@ -443,31 +457,57 @@ public class Basepage {
 	}
 
 	// Radio button//
-	public void Radiobuttons(List<WebElement> ele, String value) {
-		for (WebElement element : ele) {
+	public void Radiobuttons(List<WebElement> elements, String value) {
+		for (WebElement element : elements) {
 			String Radios = element.getAttribute("value");
-			System.out.println("Values of Radio Buttons are " + ele);
+			System.out.println("Values of Radio Buttons are " + Radios);
 			if (Radios.equalsIgnoreCase(value)) {
 				element.click();
 			}
 		}
 	}
 
+	// Radio Button values
+	public void RadioButtonValues(List<WebElement> elements) {
+		for (WebElement eachele : elements) {
+			String RadioValues = eachele.getAttribute("value");
+			System.out.println("Radio buttons values are " + RadioValues);
+		}
+	}
+
 	// check boxes//
-	public void Checkboxes(List<WebElement> ele, String value) {
+	public void Checkboxes(List<WebElement> element, String value) {
 		List<String> list = new ArrayList<String>(Arrays.asList(value.split(",")));
 		for (String check : list) {
 			System.out.println("Values of Checkboxes is " + check);
-			for (WebElement chk : ele) {
+			for (WebElement chk : element) {
 				if (chk.getAttribute("value").equalsIgnoreCase(check))
 					chk.click();
 			}
 		}
 	}
 
+	// check boxes//
+	public void CheckboxeSelectAll(List<WebElement> elements) {
+
+		for (WebElement check : elements) {
+			check.click();
+		}
+
+	}
+
+	// Checkboxes values
+	public void CheckboxesValues(List<WebElement> elements) {
+		for (WebElement eachele : elements) {
+			String CheckValues = eachele.getAttribute("value");
+			System.out.println("Checkboxes values are " + CheckValues);
+		}
+	}
+
 	// Multi select dropndown//
-	public void MultiSelect(WebElement ele, String Values) {
-		Select slct = new Select(ele);
+	public void MultiSelect(WebElement element, String Values) {
+		Select slct = new Select(element);
+		List<WebElement> allopt = slct.getOptions();
 
 		List<String> list = new ArrayList<String>(Arrays.asList(Values.split(",")));
 		for (String check : list) {
@@ -475,17 +515,71 @@ public class Basepage {
 		}
 	}
 
+	// Multi select All Valuesdropndown//
+	public void MultiSelectAllValues(WebElement element) {
+		Select slct = new Select(element);
+		List<WebElement> allopt = slct.getOptions();
+		for (WebElement check : allopt) {
+			check.click();
+		}
+	}
+
+	// MultiSelect values
+
+	public void MultiSelectValues(WebElement element) {
+
+		Select selObj = new Select(element);
+		List<WebElement> AllValues = selObj.getOptions();
+		for (WebElement ele : AllValues) {
+			String AllMultiValues = ele.getText();
+			System.out.println("Multi Select values are " + AllMultiValues);
+		}
+	}
+
 	// AutoComplete//
-	public void AutoComplete(WebElement ele, String Values) {
-		ele.click();
-		ele.sendKeys(Values);
-		ele.sendKeys(Keys.TAB);
+	public void AutoComplete(List<WebElement> elements, String ExpectedValue) {
+		for (WebElement ele : elements) {
+			String Eachelement = ele.getAttribute("innerHTML");
+			if (Eachelement.equalsIgnoreCase(ExpectedValue)) {
+				ele.click();
+				break;
+			}
+		}
+
+	}
+
+	// AutoComplete values
+	public void AutoCompleteValues(List<WebElement> elements) {
+		for (WebElement eachele : elements) {
+			String AutoValues = eachele.getAttribute("innerHTML");
+			System.out.println("Values of Radio buttons are " + AutoValues);
+		}
 	}
 
 	// UploadFile//
 	public void UploadFile(WebElement ele, String Values) {
 		ele.sendKeys(Values);
 
+	}
+
+	// Frames by name
+	public void FramebyName(String Value) {
+		driver.switchTo().frame(Value);
+	}
+
+	// Frames by Index
+	public void FramebyIndex(int Value) {
+		driver.switchTo().frame(Value);
+	}
+
+	// Frames by WebElement
+	public void FramebyWebElement(WebElement element) {
+		driver.switchTo().frame(element);
+	}
+
+	// Frames Parent
+	public void FrameParent() {
+		driver.switchTo().parentFrame();
 	}
 
 }

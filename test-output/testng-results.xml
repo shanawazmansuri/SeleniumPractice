@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26139" started-at="2017-12-24T07:47:47Z" finished-at="2017-12-24T07:48:13Z">
+  <suite name="Default suite" duration-ms="37083" started-at="2017-12-24T12:10:55Z" finished-at="2017-12-24T12:11:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26139" started-at="2017-12-24T07:47:47Z" finished-at="2017-12-24T07:48:13Z">
+    <test name="Default test" duration-ms="37083" started-at="2017-12-24T12:10:55Z" finished-at="2017-12-24T12:11:32Z">
       <class name="fieldPractice.Tests">
-        <test-method status="PASS" signature="start()[pri:0, instance:fieldPractice.Tests@50d0686]" name="start" is-config="true" duration-ms="21332" started-at="2017-12-24T13:17:47Z" finished-at="2017-12-24T13:18:08Z">
+        <test-method status="PASS" signature="start()[pri:0, instance:fieldPractice.Tests@50d0686]" name="start" is-config="true" duration-ms="33061" started-at="2017-12-24T17:40:55Z" finished-at="2017-12-24T17:41:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="testing()[pri:1, instance:fieldPractice.Tests@50d0686]" name="testing" duration-ms="2339" started-at="2017-12-24T13:18:08Z" finished-at="2017-12-24T13:18:11Z">
+        <test-method status="PASS" signature="testing()[pri:1, instance:fieldPractice.Tests@50d0686]" name="testing" duration-ms="3799" started-at="2017-12-24T17:41:28Z" finished-at="2017-12-24T17:41:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testing -->
-        <test-method status="PASS" signature="Close()[pri:0, instance:fieldPractice.Tests@50d0686]" name="Close" is-config="true" duration-ms="2393" started-at="2017-12-24T13:18:11Z" finished-at="2017-12-24T13:18:13Z">
+        <test-method status="PASS" signature="Close()[pri:0, instance:fieldPractice.Tests@50d0686]" name="Close" is-config="true" duration-ms="150" started-at="2017-12-24T17:41:32Z" finished-at="2017-12-24T17:41:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Close -->
