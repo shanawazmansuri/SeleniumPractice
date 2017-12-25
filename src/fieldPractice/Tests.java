@@ -1,8 +1,5 @@
 package fieldPractice;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -23,33 +20,11 @@ public class Tests extends Basepage {
 
 	@Test(priority = 1)
 	public void testing() {
-		List<WebElement> ListRadioEle = driver.findElements(By.xpath("//input[@name='exp']"));
-		List<WebElement> Checkname = driver.findElements(By.xpath("//input[@type='checkbox' and @name ='tool']"));
-		WebElement Dropdown = driver.findElement(By.id("continents"));
-		WebElement slct = driver.findElement(By.cssSelector("#selenium_commands"));
+		WebElement Heading = Xpath("id(\"content\")/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/h1[1]");
 
-		RadioButtonValues(ListRadioEle);
-		CheckboxesValues(Checkname);
-		DropDownValues(Dropdown);
-		MultiSelectValues(slct);
-		// AutoCompleteValues(elements);
+		AssertTrueEqualsIgnoreCase("practicE automatioN forM", Heading);
+
 	}
-
-	// WebElement text = Locator("id", "tags");
-	// driver.findElement(By.id("tags")).sendKeys("A");
-	// List<WebElement> listele =
-	// driver.findElements(By.xpath("//ul[@id='ui-id-1']/li/div"));
-	// for (WebElement ele : listele) {
-	// String perelement = ele.getAttribute("innerHTML");
-	// if (perelement.equalsIgnoreCase("Asp")) {
-
-	// ele.click();
-	// Wait(2000);
-	// }
-
-	// }
-
-	// }
 
 	@AfterMethod
 	public void Close() {

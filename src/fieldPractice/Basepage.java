@@ -158,6 +158,12 @@ public class Basepage {
 
 	}
 
+	// Enter Key//
+	public void Submit(WebElement Element) {
+		Element.submit();
+
+	}
+
 	// click on Element//
 	public void Click(WebElement Element) {
 		Element.click();
@@ -192,7 +198,7 @@ public class Basepage {
 	}
 
 	// Locators 1 //
-	public WebElement id(String Locator) {
+	public WebElement Id(String Locator) {
 		WebElement element = driver.findElement(By.id(Locator));
 		return element;
 	}
@@ -212,7 +218,7 @@ public class Basepage {
 		return element;
 	}
 
-	public WebElement Partialtext(String Locator) {
+	public WebElement PartialLinkText(String Locator) {
 		WebElement element = driver.findElement(By.partialLinkText(Locator));
 		return element;
 	}
@@ -390,21 +396,25 @@ public class Basepage {
 		actObj.moveToElement(ele).build().perform();
 	}
 
-	public void Assertequal(WebElement act, String Expected) {
-		String actual = act.getText();
-		Assert.assertEquals(actual, Expected);
+	public void AssertEquals(WebElement actual, String Expected) {
+		String act = actual.getText();
+		Assert.assertEquals(act, Expected);
 
 	}
 
-	public void Asserttruecontains(String Expected, WebElement Act) {
+	public void AssertTrueContains(String Expected, WebElement Act) {
 		String Actual = Act.getText();
 		Assert.assertTrue(Actual.contains(Expected), "Text not matched");
 	}
 
-	public void Asserttrueequals(String Expected, WebElement Act) {
-		String Actual = Act.getText();
-		Assert.assertTrue(Actual.equalsIgnoreCase(Expected), "Text not matched");
+	public void AssertTrueEquals(String Expected, WebElement Actual) {
+		String Act = Actual.getText();
+		Assert.assertTrue(Act.equals(Expected), "Text not matched");
+	}
 
+	public void AssertTrueEqualsIgnoreCase(String Expected, WebElement Actual) {
+		String Act = Actual.getText();
+		Assert.assertTrue(Act.equalsIgnoreCase(Expected), "Text not matched");
 	}
 
 	// select the dropdown using "select by visible text"//
@@ -433,6 +443,25 @@ public class Basepage {
 		for (WebElement ele : AllValues) {
 			String AllDropValues = ele.getText();
 			System.out.println("Drop Down values are " + AllDropValues);
+		}
+
+	}
+
+	// DropDown First Values
+	public void DropFirstselectedValues(WebElement element) {
+
+		Select DropValues = new Select(element);
+		WebElement FirstValue = DropValues.getFirstSelectedOption();
+		System.out.println("First Value selected is " + FirstValue.getText());
+
+	}
+
+	// DropDown Selected Values
+	public void DropSelectedValues(WebElement element) {
+		Select DropValues = new Select(element);
+		List<WebElement> AllValueSelected = DropValues.getAllSelectedOptions();
+		for (WebElement ele : AllValueSelected) {
+			System.out.println("Selected Values in Drop Down are " + ele.getText());
 		}
 
 	}
@@ -536,6 +565,16 @@ public class Basepage {
 		}
 	}
 
+	// MultiSelect Selected Values
+	public void MultiSelectedValues(WebElement element) {
+		Select DropValues = new Select(element);
+		List<WebElement> AllValueSelected = DropValues.getAllSelectedOptions();
+		for (WebElement ele : AllValueSelected) {
+			System.out.println("Multi Selected Values in Drop Down are " + ele.getText());
+		}
+
+	}
+
 	// AutoComplete//
 	public void AutoComplete(List<WebElement> elements, String ExpectedValue) {
 		for (WebElement ele : elements) {
@@ -580,6 +619,36 @@ public class Basepage {
 	// Frames Parent
 	public void FrameParent() {
 		driver.switchTo().parentFrame();
+	}
+
+	// Click and Hold
+	public void ClickandHold(WebElement element) {
+		Actions action = new Actions(driver);
+		action.clickAndHold(element);
+	}
+
+	// Double Click
+	public void DoubleClick(WebElement element) {
+		Actions action = new Actions(driver);
+		action.doubleClick(element);
+	}
+
+	// Release
+	public void ReleaseClick(WebElement element) {
+		Actions action = new Actions(driver);
+		action.release(element);
+	}
+
+	// Right Click
+	public void RightClick(WebElement element) {
+		Actions action = new Actions(driver);
+		action.contextClick(element);
+	}
+
+	// Move to Element
+	public void MovetoElement(WebElement element) {
+		Actions action = new Actions(driver);
+		action.moveToElement(element);
 	}
 
 }
