@@ -3,12 +3,13 @@
 <suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="fieldPractice.iFrame">
+      <class name="advance_selenium.Excel_Test">
         <methods>
-          <include name="Start"/>
-          <include name="testfrane"/>
+          <include name="Close"/>
+          <include name="ExcelTests"/>
+          <include name="start"/>
         </methods>
-      </class> <!-- fieldPractice.iFrame -->
+      </class> <!-- advance_selenium.Excel_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -233,9 +233,9 @@ public class Basepage {
 		return element;
 	}
 
-	public List<WebElement> Elements(String Locator) {
+	public List<WebElement> Elements(String Xpath) {
 
-		List<WebElement> elements = driver.findElements(By.xpath(Locator));
+		List<WebElement> elements = driver.findElements(By.xpath(Xpath));
 		return elements;
 	}
 
@@ -489,7 +489,6 @@ public class Basepage {
 	public void Radiobuttons(List<WebElement> elements, String value) {
 		for (WebElement element : elements) {
 			String Radios = element.getAttribute("value");
-			System.out.println("Values of Radio Buttons are " + Radios);
 			if (Radios.equalsIgnoreCase(value)) {
 				element.click();
 			}
@@ -508,9 +507,8 @@ public class Basepage {
 	public void Checkboxes(List<WebElement> element, String value) {
 		List<String> list = new ArrayList<String>(Arrays.asList(value.split(",")));
 		for (String check : list) {
-			System.out.println("Values of Checkboxes is " + check);
 			for (WebElement chk : element) {
-				if (chk.getAttribute("value").equalsIgnoreCase(check))
+				if (chk.getAttribute("name").equalsIgnoreCase(check))
 					chk.click();
 			}
 		}

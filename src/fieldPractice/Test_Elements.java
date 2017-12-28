@@ -1,6 +1,5 @@
 package fieldPractice;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -27,14 +26,15 @@ public class Test_Elements extends Basepage {
 		// WebElement Heading = driver.findElement(By.tagName("h1"));
 	}
 
-	public void firstName() {
-		WebElement text1 = driver.findElement(By.id("tags"));
+	public WebElement firstName() {
+		WebElement firstname = Name("firstname");
+		return firstname;
 
 	}
 
 	public WebElement lastName() {
-		WebElement text = Id("tags");
-		return text;
+		WebElement lastname = Name("lastname");
+		return lastname;
 
 	}
 
