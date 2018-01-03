@@ -417,6 +417,14 @@ public class Basepage {
 		Assert.assertTrue(Act.equalsIgnoreCase(Expected), "Text not matched");
 	}
 
+	public void AssertTrue(boolean boolvalue) {
+		Assert.assertTrue(boolvalue, "Condition not matched");
+	}
+
+	public void AssertFalse(boolean boolvalue) {
+		Assert.assertFalse(boolvalue, "Condition not matched");
+	}
+
 	// select the dropdown using "select by visible text"//
 	public void Dropbyvisibletext(WebElement ele, String VisibleText) {
 		Select selObj = new Select(ele);
