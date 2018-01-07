@@ -20,6 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,7 +28,9 @@ import org.testng.Assert;
 
 public class Basepage {
 
-	public WebDriver driver;
+	public static WebDriver driver;
+	public static EventFiringWebDriver e_driver;
+	public static WebEventListener eventListener;
 
 	public WebDriver Browser(String BrowserName, String url) {
 
@@ -44,6 +47,12 @@ public class Basepage {
 			driver = new InternetExplorerDriver();
 		}
 
+		e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with
+		// EventFiringWebDriver
+		eventListener = new WebEventListener();
+		e_driver.register(eventListener);
+		driver = e_driver;
 		driver.get(url);
 		return driver;
 
@@ -475,9 +484,10 @@ public class Basepage {
 	}
 
 	// Enter Date
-	public void DateEnter(WebElement ele, String value) {
-		ele.sendKeys(value);
-		ele.sendKeys(Keys.TAB);
+	public String DateEnter(WebDriver driver, WebElement element, String DateValue) {
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].setAttribute('value','" + DateValue + "');", element);
+		return DateValue;
 
 	}
 
