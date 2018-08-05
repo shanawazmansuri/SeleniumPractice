@@ -22,7 +22,6 @@ public class Tests extends Basepage {
 	@Test(priority = 1)
 	public void Form1() {
 
-		FramebyName("iframe2");
 		WebElement head = driver.findElement(By.xpath("//h1[@class='entry-title']"));
 		String heading = Gettext(head);
 		System.out.println("Text is " + heading);

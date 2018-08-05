@@ -2,20 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28779" started-at="2018-01-19T06:27:01Z" finished-at="2018-01-19T06:27:30Z">
+  <suite name="Default suite" duration-ms="58389" started-at="2018-08-05T07:56:54Z" finished-at="2018-08-05T07:57:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28779" started-at="2018-01-19T06:27:01Z" finished-at="2018-01-19T06:27:30Z">
-      <class name="fieldPractice.CloseChildwindow">
-        <test-method status="PASS" signature="start()[pri:0, instance:fieldPractice.CloseChildwindow@371a67ec]" name="start" is-config="true" duration-ms="28168" started-at="2018-01-19T11:57:01Z" finished-at="2018-01-19T11:57:30Z">
+    <test name="Default test" duration-ms="58389" started-at="2018-08-05T07:56:54Z" finished-at="2018-08-05T07:57:52Z">
+      <class name="fieldPractice.Miscellaneous">
+        <test-method status="PASS" signature="Url()[pri:0, instance:fieldPractice.Miscellaneous@5ed828d]" name="Url" is-config="true" duration-ms="36954" started-at="2018-08-05T13:26:54Z" finished-at="2018-08-05T13:27:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- start -->
-        <test-method status="PASS" signature="closewindow()[pri:0, instance:fieldPractice.CloseChildwindow@371a67ec]" name="closewindow" duration-ms="556" started-at="2018-01-19T11:57:30Z" finished-at="2018-01-19T11:57:30Z">
+        </test-method> <!-- Url -->
+        <test-method status="PASS" signature="Test()[pri:0, instance:fieldPractice.Miscellaneous@5ed828d]" name="Test" duration-ms="14420" started-at="2018-08-05T13:27:31Z" finished-at="2018-08-05T13:27:45Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closewindow -->
-      </class> <!-- fieldPractice.CloseChildwindow -->
+        </test-method> <!-- Test -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:fieldPractice.Miscellaneous@5ed828d]" name="tearDown" is-config="true" duration-ms="6949" started-at="2018-08-05T13:27:45Z" finished-at="2018-08-05T13:27:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- fieldPractice.Miscellaneous -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
