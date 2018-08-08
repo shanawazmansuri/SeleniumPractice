@@ -37,8 +37,8 @@ public class Excel_Test extends Basepage {
 		Click(elem.Description());
 		ClearText(elem.Description());
 		enterText(elem.Description(), Desc);
-		Checkboxes(elem.Checkboxes(), Chk);
-		Radiobuttons(elem.Radiobutton(), Rdio);
+		Checkboxes(elem.Checkboxes(), Chk, "name");
+		Radiobuttons(elem.Radiobutton(), Rdio, "value");
 		highLightElement(driver, elem.Dropdown());
 		Dropbyvisibletext(elem.Dropdown(), Drop);
 		highLightElement(driver, elem.FileUpload());

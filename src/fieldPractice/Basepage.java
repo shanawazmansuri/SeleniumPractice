@@ -23,8 +23,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -82,6 +85,49 @@ public class Basepage {
 			driver = new ChromeDriver(opt);
 
 		}
+		e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with
+		// EventFiringWebDriver
+		eventListener = new WebEventListener();
+		e_driver.register(eventListener);
+		driver = e_driver;
+		driver.get(url);
+		return driver;
+
+	}
+
+	// SSL Certificate Handle//
+	public WebDriver sslHandlingBrowser(String BrowserName, String url) {
+
+		if (BrowserName.equalsIgnoreCase("firefox")) {
+			// It create firefox profile
+			FirefoxProfile profile = new FirefoxProfile();
+			// This will set the true value
+			profile.setAcceptUntrustedCertificates(true);
+			// This will open  firefox browser using above created profile
+			System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\Setup\\geckodriver.exe");
+			driver = new FirefoxDriver(profile);
+		}
+
+		else if (BrowserName.equalsIgnoreCase("chrome")) {
+
+			// Create object of DesiredCapabilities class
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			// Set ACCEPT_SSL_CERTS  variable to true
+			cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			// Set the driver path
+			System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\Setup\\chromedriver.exe");
+			// Open browser with capability
+			driver = new ChromeDriver(cap);
+
+		} else if (BrowserName.equalsIgnoreCase("IE")) {
+
+			System.setProperty("webdriver.ie.driver", "D:\\Selenium\\Setup\\IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+			driver.navigate().to("javascript:document.getElementById('overridelink').click()");
+
+		}
+
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with
 		// EventFiringWebDriver
@@ -572,9 +618,9 @@ public class Basepage {
 	}
 
 	// Radio button//
-	public void Radiobuttons(List<WebElement> elements, String value) {
+	public void Radiobuttons(List<WebElement> elements, String value, String attribute) {
 		for (WebElement element : elements) {
-			String Radios = element.getAttribute("value");
+			String Radios = element.getAttribute(attribute);
 			if (Radios.equalsIgnoreCase(value)) {
 				element.click();
 			}
@@ -582,19 +628,19 @@ public class Basepage {
 	}
 
 	// Radio Button values
-	public void RadioButtonValues(List<WebElement> elements) {
+	public void RadioButtonValues(List<WebElement> elements, String attribute) {
 		for (WebElement eachele : elements) {
-			String RadioValues = eachele.getAttribute("value");
+			String RadioValues = eachele.getAttribute(attribute);
 			System.out.println("Radio buttons values are " + RadioValues);
 		}
 	}
 
 	// check boxes//
-	public void Checkboxes(List<WebElement> element, String value) {
+	public void Checkboxes(List<WebElement> element, String value, String attribute) {
 		List<String> list = new ArrayList<String>(Arrays.asList(value.split(",")));
 		for (String check : list) {
 			for (WebElement chk : element) {
-				if (chk.getAttribute("name").equalsIgnoreCase(check))
+				if (chk.getAttribute(attribute).equalsIgnoreCase(check))
 					chk.click();
 			}
 		}
@@ -610,9 +656,10 @@ public class Basepage {
 	}
 
 	// Checkboxes values
-	public void CheckboxesValues(List<WebElement> elements) {
+	public void CheckboxesValues(List<WebElement> elements, String attribute) {
+
 		for (WebElement eachele : elements) {
-			String CheckValues = eachele.getAttribute("value");
+			String CheckValues = eachele.getAttribute(attribute);
 			System.out.println("Checkboxes values are " + CheckValues);
 		}
 	}

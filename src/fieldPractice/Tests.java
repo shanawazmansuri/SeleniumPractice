@@ -1,7 +1,5 @@
 package fieldPractice;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -13,7 +11,7 @@ public class Tests extends Basepage {
 	@BeforeMethod
 	public void start() {
 
-		Browser("chrome", "http://toolsqa.com/iframe-practice-page/");
+		sslHandlingBrowser("ie", "https://www.cacert.org/");
 		MaximizeBrowser();
 		Implicitwait(5);
 
@@ -22,9 +20,9 @@ public class Tests extends Basepage {
 	@Test(priority = 1)
 	public void Form1() {
 
-		WebElement head = driver.findElement(By.xpath("//h1[@class='entry-title']"));
-		String heading = Gettext(head);
-		System.out.println("Text is " + heading);
+		String title = GetTitle();
+		System.out.println("Title is " + title);
+
 	}
 
 	@AfterMethod
