@@ -11,7 +11,7 @@ public class Tests extends Basepage {
 	@BeforeMethod
 	public void start() {
 
-		sslHandlingBrowser("ie", "https://www.cacert.org/");
+		driver = sslHandlingBrowser("firefox", "https://www.cacert.org/");
 		MaximizeBrowser();
 		Implicitwait(5);
 
