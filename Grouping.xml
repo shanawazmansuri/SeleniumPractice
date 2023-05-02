@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<!-- Method 1 <groups> <run> <include name="Linux.Smoke" > </include> </run> 
+			</groups> -->
+		<!-- 
+		Method 2
+		<groups>
+			<define name="Windows TC">
+				<include name="Windows.Positive"></include>
+				<include name="Windows.Sanity"></include>
+			</define>
+
+			<run>
+				<include name="Windows TC"></include>
+			</run>
+		</groups>
+ -->		<classes>
+			<class name="com.testngtest.Grouping" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
